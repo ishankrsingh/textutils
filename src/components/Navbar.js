@@ -41,7 +41,7 @@ Navbar.propTypes={
 /*In case, no props are passed to Navbar component, then we are setting default for individual props */
 Navbar.defaultProps ={
     title: "Set title here",
-    aboutText: "About text here"
+    aboutText: "About"
 }
 
 /* In short, props behave just like any arguments passed to a function */
