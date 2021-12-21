@@ -21,7 +21,7 @@ export default function TextForm(props) {
         setText(newText);
     }
 
-    const [text, setText]=useState('Enter text here'); //useState is a hook. text variable will be initialized by 'Enter text here' and inorder to change its value, we will have to make use of setText function as we have done with inside handleUpClick function. Here text is a state variable.
+    const [text, setText]=useState(''); //useState is a hook. text variable will be initialized by 'Enter text here' and inorder to change its value, we will have to make use of setText function as we have done with inside handleUpClick function. Here text is a state variable.
     
     // text="new text"; //Wrong way to change the state
     // setText("new text"); //Correct way to change the state
