@@ -20,8 +20,24 @@ export default function TextForm(props) {
         let newText=text.toLowerCase();
         setText(newText);
     }
+    
+    const handleClearClick= ()=>{
+        setText(" ");
+    }
 
-    const [text, setText]=useState(''); //useState is a hook. text variable will be initialized by 'Enter text here' and inorder to change its value, we will have to make use of setText function as we have done with inside handleUpClick function. Here text is a state variable.
+    const handleCopyClick= ()=>{
+        var text=document.getElementById("myBox");
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+
+    const handleExtraSpaces= ()=>{
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "))
+        
+    }
+
+    const [text, setText]=useState(''); //useState is a hook. text variable will be initialized by whatever is the value present in the useState argument and inorder to change its value, we will have to make use of setText function as we have done with inside handleUpClick function. Here text is a state variable.
     
     // text="new text"; //Wrong way to change the state
     // setText("new text"); //Correct way to change the state
@@ -33,8 +49,11 @@ export default function TextForm(props) {
             <div className="mb-3">
             <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea> 
             </div>
-            <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
-            <button className="btn btn-primary" onClick={handleLoClick}>Convert to Lowercase</button>
+            <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to UpperCase</button>
+            <button className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>Convert to Lowercase</button>
+            <button className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>Clear Text</button>
+            <button className="btn btn-primary mx-2 my-2" onClick={handleCopyClick}>Copy Text</button>
+            <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
         </div>
         <div className="container my-2">
             <h2>Your text summary</h2>
