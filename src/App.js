@@ -1,12 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
-// import About from './components/About';
+import About from './components/About';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react'; // type imrs to get import 
 import Alert from './components/Alert';
 
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 
@@ -53,13 +58,24 @@ function App() {
 
    {/* <Navbar title="TextUtils2" aboutText="About TextUtils"/> */}
    {/* <Navbar/> */}
+   <Router>
    <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
    <Alert alert={alert}/>
    <div className="container my-3">
-      <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>
+     {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          {/* 'exact' keyword below will make sure only when url matches the path exactly, it will be directed to its destination. Otherwise, react matches the path only partially, that is /users --> component 1 and /users/home --> component 2 , both will be directed to /users if we don't use exact keyword(i.e. component 1 will be rendered)  */}
+          <Route exact path="/about"> 
+            <About />
+          </Route>
+          <Route exact path="/">
+          <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>
+          </Route>
+        </Switch>
       {/* <About/> */}
    </div>
-   
+   </Router>
    
    </>
   );
