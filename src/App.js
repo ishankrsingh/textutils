@@ -30,11 +30,21 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor='#042758';
       showAlert("Dark mode has been enabled","success");
+      //document.title='TextUtils - dark mode'; //This will change the title to TextUtils - dark mode
+      //Below is the implementation of another way people spam websites, where you see you see virus on your computer alerts
+      // So the title will change to 'TextUtils is amazing' every 2 secs and to 'Install TextUtils Now' every 1.5 secs
+      // setInterval(()=>{
+      //   document.title='TextUtils is amazing';
+      // },2000);
+      // setInterval(()=>{
+      //   document.title='Install TextUtils Now';
+      // },1500);
     }
     else{
       setMode('light');
       document.body.style.backgroundColor='white';
       showAlert("Light mode has been enabled","success");
+      //document.title='TextUtils - light mode'; // This will change the title to TextUtils - light mode
     }
   }
 
