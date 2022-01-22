@@ -1,6 +1,7 @@
 // React based component - rfc
 import React from 'react'
 import Proptypes from 'prop-types'
+import { Link } from 'react-router-dom';
 // import {Link} from 'react-router-dom'
 
 export default function Navbar(props) {
@@ -10,7 +11,7 @@ export default function Navbar(props) {
         {/* Curly brackets in the above line indicates that I am writing JS and ``(backticks) means I can make use of a variable using ${variable} syntax and hence make use of props*/}
         <div className="container-fluid">
           {/* changing href value to # will disable the link */}
-          <a className="navbar-brand" href="#">{props.title}</a>
+          <Link className="navbar-brand" to="/">{props.title}</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -18,11 +19,12 @@ export default function Navbar(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 {/* Note we are using react router below, because of which we have replaced 'a' with 'Link' and 'href' with 'to' in the below tags. Doing this, will enable us to move to different sections of sites without having to reload then entire page every single time. */}
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                {/* <a className="nav-link active" aria-current="page" href="#">Home</a> */}
               </li>
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link" to="/about">{props.aboutText}</Link>
-              </li> */}
+              </li>
             </ul>
             {/*<form className="d-flex">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
