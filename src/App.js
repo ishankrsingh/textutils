@@ -68,10 +68,10 @@ function App() {
         <Switch>
           {/* 'exact' keyword below will make sure only when url matches the path exactly, it will be directed to its destination. Otherwise, react matches the path only partially, that is /users --> component 1 and /users/home --> component 2 , both will be directed to /users if we don't use exact keyword(i.e. component 1 will be rendered)  */}
           <Route exact path="/about"> 
-            <About />
+            <About mode={mode}/>
           </Route>
           <Route exact path="/">
-          <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>
+          <TextForm showAlert={showAlert} heading="Try TextUtils - Enter text below to manipulate strings" mode={mode}/>
           </Route>
         </Switch>
       {/* <About/> */}
