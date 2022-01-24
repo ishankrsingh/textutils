@@ -29,23 +29,8 @@ function App() {
         setAlert(null);
       },1500)
   }
-  
-  const removeBodyClasses=()=>{
-     document.body.classList.remove('bg-light');
-     document.body.classList.remove('bg-dark');
-     document.body.classList.remove('bg-success');
-     document.body.classList.remove('bg-primary');
-     document.body.classList.remove('bg-danger');
-     document.body.classList.remove('bg-warning');
-  }
 
-  const toggleMode=(cls)=>{
-
-    removeBodyClasses();//Whenever we are trying to toggle between different color modes, we are unable to do so because once any bg-color is selected, it is not changing automatically without loading the page. So we are calling removeBodyClasses(); which will first remove the current bg-color and then will apply the new one.
-    
-    console.log(cls);
-    document.body.classList.add('bg-'+cls); //This will change the background color based on the color pallette selected. 
-
+  const toggleMode=()=>{
     if(mode==='light')
     {
       setMode('dark');
@@ -98,3 +83,4 @@ function App() {
 }
 
 export default App;
+

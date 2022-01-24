@@ -19,7 +19,8 @@ export default function Navbar(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 {/* Note we are using react router below, because of which we have replaced 'a' with 'Link' and 'href' with 'to' in the below tags. Doing this, will enable us to move to different sections of sites without having to reload then entire page every single time. */}
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <Link className="nav-link" aria-current="page" to="/">Home</Link> 
+                {/* Removing 'active' class above will no longer highlight Home  */}
                 {/* <a className="nav-link active" aria-current="page" href="#">Home</a> */}
               </li>
               <li className="nav-item">
@@ -31,20 +32,9 @@ export default function Navbar(props) {
               <button className="btn btn-danger" type="submit">Search</button>
               {/* In bootstrap, success represents green, primary represnts blue and danger represnts red */}
             {/*</form>*/}
-            {/* Below section helps us to choose the color pallete for the page */}
-            <div className="d-flex">
-              <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
-              <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
-              <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
-              <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{height:'30px',width:'30px',cursor:'pointer'}}></div>
-               {/* Onclick event above only takes function as a parameter and not function calls, hence we have passed arrow function as parameter above. Also, cursor:'pointer' property changes the hover icon when pointed over the given div */}
-            </div>
-            
-            
-            
             <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}> {/* In bootstrap, in order to make any text white, we make use of text-light class*/}
-                <input className="form-check-input" onClick={()=>{props.toggleMode(null)}} type="checkbox" role="switch" id="flexSwitchCheckDefault"  />
-                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Toggle Mode</label>
+                <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"  />
+                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
             </div>
           </div>
         </div>

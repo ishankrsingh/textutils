@@ -29,10 +29,10 @@ export default function TextForm(props) {
     }
 
     const handleCopyClick= ()=>{
-        var text=document.getElementById("myBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges();//This will remove the selection of copied texts so that it won't be highlighted when copied.
+        // var text=document.getElementById("myBox");
+        // text.select();
+        navigator.clipboard.writeText(text);// Since we are using navigator api here, we don't need the commented out section which is present above and below this line
+        // document.getSelection().removeAllRanges();//This will remove the selection of copied texts so that it won't be highlighted when copied.
         props.showAlert("Text has been copied to clipboard!","success");
     }
 
@@ -64,8 +64,8 @@ export default function TextForm(props) {
         </div>
         <div className="container my-2" style={{color:props.mode==='dark'?'white':'black' }}>
             <h2>Your text summary</h2>
-            {/* Filter function proceeds only when it returns true*/}
-            <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+            {/* Filter function proceeds only when it returns true. Here we have made use of regex to split -> \s which means white spaces including new line.*/}
+            <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
             <p> Approx. read {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} mins </p>
             <h2>Preview</h2>
             <p>{text.length>0?text:"Nothing to preview!"}</p>
